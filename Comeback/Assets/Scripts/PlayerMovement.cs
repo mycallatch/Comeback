@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start() {
         player = gameObject.GetComponent<Rigidbody2D>();
         moveHoz = 0f;
-        moveSpeed = 1f;
+        moveSpeed = 3f;
         speedLimit = 7f;
         jumpForce = 50f;
         canJump = false;
@@ -73,8 +73,13 @@ public class PlayerMovement : MonoBehaviour {
         if (moveSpeed > speedLimit) {
             moveHoz = speedLimit;
         }
+
         if (grounded) {
             jumpTimer = jumpCooldown;
+            moveSpeed = 3f;
+        }
+        else {
+            moveSpeed = 1.2f;
         }
     }
 
